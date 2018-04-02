@@ -116,6 +116,7 @@
           ad-do-it
           (let ((new-msg (concat (car ad-return-value)
                                  ", / to search in project, "
+                                 "s to search via helm swoop, "
                                  "f to search in files, "
                                  "b to search in opened buffers"))
                 (new-bindings (cdr ad-return-value)))
@@ -123,6 +124,11 @@
              '("/" (lambda ()
                      (call-interactively
                       'spacemacs/helm-project-smart-do-search-region-or-symbol)))
+             new-bindings)
+            (cl-pushnew
+             '("s" (lambda ()
+                     (call-interactively
+                      'spacemacs/helm-swoop-region-or-symbol)))
              new-bindings)
             (cl-pushnew
              '("f" (lambda ()
