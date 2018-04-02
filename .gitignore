@@ -90,3 +90,5 @@ tags
 .tags
 !tags/
 gtags.files
+etc/
+lsp-cache/
